@@ -4,8 +4,8 @@ const roundReportTextElement = document.querySelector("[data-round-message-text]
 const roundWinnerTextElement = document.querySelector('[data-round-winner-text]');
 const gameMessageElement = document.getElementById('gameWinningMessage');
 const gameWinnerTextElement = document.querySelector('[data-game-winner-text]');
-let playerScore = document.querySelector('[data-player-Score]');
-let compScore = document.querySelector('[data-comp-score]');
+let playerScoreDisplay = document.querySelector('[data-player-Score]');
+let compScoreDisplay = document.querySelector('[data-comp-score]');
 const roundButton = document.getElementById('nextRoundButton');
 const restartButton = document.getElementById('restartButton');
 
@@ -36,8 +36,11 @@ function handleClick(e) {
     const result = checkRoundWin(playerSelection, computerSelection);
     reportRound(result);
     if (result != 'draw') {
-        const gameResult = checkGameWin(playerScore.innerText, compScore.innerText);
+        const playerScore = (playerScoreDisplay.innerText.length)
+        const compScore = (compScoreDisplay.innerText.length)
+        const gameResult = checkGameWin(playerScore, compScore);
         if (gameResult != undefined) {
+            gameWin(gameResult);
             endGame();
         };
     };
@@ -97,9 +100,9 @@ function reportRound(result) {
 }
 
 function checkGameWin (playerScore, compScore) {
-    if (playerScore = 'XXX') {
+    if (playerScore == 3) {
         return "WIN";
-    } if (compScore = 'XXX') {
+    } if (compScore == 3) {
         return "LOSE";
     }
 }
