@@ -2,86 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport">
+    <title>Brill Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script>
+    <div>
 
-        
-        function getComputerChoice () {
-            let options = ['Rock', 'Paper', 'Scissors'];
-            let choice = options[Math.floor(Math.random()*options.length)];
-            return choice;
-        }
-
-        function playRound (playerSelection,computerSelection) {
-            if (playerSelection === 'rock' && computerSelection === 'Paper') {
-                return 'You Lose!'}
-            else if (playerSelection === 'rock' && computerSelection === 'Scissors') {
-                return 'Well Done!'}
-            else if (playerSelection === 'rock' && computerSelection === 'Rock') {
-                return 'It\'s a Draw!'}
-            else if (playerSelection === 'paper' && computerSelection === 'Rock') {
-                return 'Well Done!'}
-            else if (playerSelection === 'paper' && computerSelection === 'Paper') {
-                return 'It\'s a Draw!'}
-            else if (playerSelection === 'paper' && computerSelection === 'Scissors') {
-                return 'You Lose!'}
-            else if (playerSelection === 'scissors' && computerSelection === 'Rock') {
-                return 'You Lose!'}
-            else if (playerSelection === 'scissors' && computerSelection === 'Scissors') {
-                return 'It\'s a Draw!'}
-            else if (playerSelection === 'scissors' && computerSelection === 'Paper') {
-                return 'Well Done!'}
-            else {return 'Not a valid input'}
-        }
-
-            
-            
-        
-
-        function game() {
-            let playerScore = 0; 
-            let computerScore = 0;
-            
-            for (let round = 1; round < 6; round++) {
-                const playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
-                const computerSelection = getComputerChoice();
-                
-                console.log(`User plays ${playerSelection}, Computer plays ${computerSelection}`);
-
-                result = playRound(playerSelection, computerSelection).toString();
-                console.log(result)
-                    
-                if (result === 'Well Done!') {
-                        playerScore++;
-                    } else if (result === 'You Lose!') {
-                        computerScore++;
-                    }                
-                    console.log(`Round ${round}: 
-Current score is: Player - ${playerScore} v Computer - ${computerScore}`)
-                }
-            
-            if (playerScore > computerScore) {
-                return 'You Win!!!'
-            } else if (computerScore > playerScore) {
-                return 'You Lose!!!'
-            } else {
-                return 'It\'s a draw. Try again.'
-            }
-
-        }
-
-        console.log(game());
-        
-        
-
-
-
-        
-
-    </script>
+    </div>
+    <div class="game-area" id="gameArea">
+        <div class="scores" id="scores">
+            <div class="left">
+                <h1>YOU: </h1>
+                <h1 class="player-score" id="playerScore"data-player-score> </h1>
+            </div>
+            <div class="right">
+                <h1> :COMP</h1>
+                <h1 class="comp-score" id="compScore" data-comp-score=""> </h1>
+            </div>
+        </div>
+        <div class="buttons" id="buttons">
+            <div class="buttons-top">
+                <button class="rock" id="rock" data-game-button>ROCK</button>
+                <button class="paper" id="paper" data-game-button>PAPER</button>
+            </div>
+            <div class="buttons-bottom">    
+                <button class="scissors" id="scissors" data-game-button>SCISSORS</button>
+            </div>
+        </div>
+    </div>
+    <div class="round-winning-message" id="roundMessage">
+        <div data-round-message-text></div>
+        <div data-round-winner-text></div>
+        <button class="game-button" id="nextRoundButton">NEXT ROUND</button> 
+    </div>
+    <div class="game-winning-message" id="gameWinningMessage">
+        <div data-game-winner-text> </div>
+        <button class="game-button" id="restartButton">Restart</button> 
+    </div>
 </body>
+<script src="rps.js"></script>
 </html>

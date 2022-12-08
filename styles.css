@@ -1,0 +1,140 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --board-width: 100vw;
+    --board-height: 100vh; 
+}
+
+body {
+    width: var(--board-width);
+    height: var(--board-height);
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(66,193,64,1);
+}
+
+.game-area {
+    width: var(--board-width);
+    height: var(--board-height);
+    max-width: 670px;
+    max-height: 686px;
+    display: flex;
+    flex-direction: column;
+}
+
+.scores {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button {
+    cursor: pointer;
+}
+
+button.rock,
+button.paper,
+button.scissors {
+    margin: calc(var(--board-width) * .03);
+    width: calc(var(--board-width) *.4);
+    height: calc(var(--board-width) *.4);
+    max-width: 268px;
+    max-height: 268px;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: box-shadow .5s;
+}
+
+button.rock {
+    background: black url('rock.jpeg') no-repeat center;
+    color: white;
+}
+button.paper {
+    background: black url('paper.jpg') no-repeat center;
+    color: rgba(71,71,71,1);
+}
+button.scissors {
+    background: black url('scissors.png') no-repeat bottom left;
+    color: white;
+}
+
+button.rock:hover,
+button.paper:hover,
+button.scissors:hover {
+    border: 1px solid rgba(255,255,102,1);
+    box-shadow: 0px 0px 20px 20px rgba(238,252,237,.9);
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.buttons-top,
+.buttons-bottom {
+    display: flex;
+}
+
+
+.round-winning-message {
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background-color: rgba(0,0,0,.8);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+    flex-direction: column;
+}
+
+.game-winning-message {
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background-color: rgba(0,0,0,.8);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 4rem;
+    flex-direction: column;
+}
+
+.game-button {
+    padding: 10px 20px;
+    font-size: 24px;
+    border-radius: 8%;
+}
+
+.game-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.show {
+    display: flex;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    
+}
+.right {
+    display: flex;
+    flex-direction: row-reverse;
+
+}
